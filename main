@@ -1,0 +1,19 @@
+# Parent class Vehicle
+class Vehicle:
+    def __init__(self, capacity):
+        self.capacity = capacity
+
+    def fare(self):
+        return self.capacity * 100  # Base fare per person is 100 units
+
+# Child class Bus inherited from Vehicle
+class Bus(Vehicle):
+    def fare(self):
+        base_fare = super().fare()  # Get the base fare from the Vehicle class
+        # Additional 10% charge for buses
+        total_fare = base_fare + (0.10 * base_fare)
+        return total_fare
+
+# Example usage
+bus = Bus(50)  # A bus with a capacity of 50 people
+print(f"The bus fare is: {bus.fare()} units")
